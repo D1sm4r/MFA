@@ -33,7 +33,6 @@ public class AuthService {
                 String.class
         );
 
-        // Guardar cookies (JSESSIONID)
         List<String> setCookie = response.getHeaders().get(HttpHeaders.SET_COOKIE);
         if (setCookie != null) {
             headers.put(HttpHeaders.COOKIE, setCookie);

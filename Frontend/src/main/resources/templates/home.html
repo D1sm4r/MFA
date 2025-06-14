@@ -1,20 +1,63 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Home</title>
+    <title>Inicio - Banco MGTI</title>
+    <meta charset="UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/estilos.css">
+    <style>
+        body {
+            background-image: url('static/css/imagenes/paisaje.jpg');
+            background-size: cover;
+            background-position: center;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .home-card {
+            width: 100%;
+            max-width: 600px;
+            background-color: rgba(255, 255, 255, 0.96);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: none; }
+        }
+
+        .hidden-jwt {
+            display: none;
+        }
+    </style>
 </head>
-<body class="bg-light">
-<div class="container mt-5">
-    <div class="card shadow">
-        <div class="card-header bg-dark text-white text-center">
-            <h4>Bienvenido al Panel Principal</h4>
-        </div>
-        <div class="card-body">
-            <h5 class="mb-3">Token JWT:</h5>
-            <pre th:text="${jwt}" class="bg-light p-3 border rounded text-break"></pre>
-        </div>
+<body class="d-flex justify-content-center align-items-center vh-100">
+
+<div class="home-card text-center">
+    <img src="css/imagenes/logo.png" alt="Logo Banco MGTI" width="140" class="mb-3">
+    <h3 class="text-primary fw-bold">Bienvenido a tu Banca en Línea</h3>
+    <p class="text-muted">Has ingresado exitosamente al sistema.</p>
+
+    <div class="mt-4">
+        <a href="#" class="btn btn-outline-primary me-2"><i class="bi bi-credit-card"></i> Ver Productos</a>
+        <a href="#" class="btn btn-outline-success"><i class="bi bi-arrow-left-right"></i> Transferencias</a>
     </div>
+
+    <a href="/login" onclick="clearJwt()" class="btn btn-danger w-100 mt-4">
+        <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+    </a>
+
+    <div id="jwt" class="hidden-jwt" th:text="${jwt}"></div>
 </div>
+
 </body>
+<script>
+    function clearJwt() {
+        const jwtEl = document.getElementById("jwt");
+        if (jwtEl) jwtEl.textContent = '';
+    }
+</script>
 </html>
