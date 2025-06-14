@@ -1,6 +1,27 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+<<<<<<< HEAD
+    <title>Configurar MFA</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body { background-color: #f3f9ff; font-family: 'Roboto', sans-serif; }
+        .card { animation: zoomIn 0.8s ease; border-radius: 16px; }
+        @keyframes zoomIn { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    </style>
+</head>
+<body class="d-flex justify-content-center align-items-center vh-100">
+<div class="card p-4 shadow text-center" style="width: 100%; max-width: 400px;">
+    <i class="bi bi-qr-code-scan display-4 text-success mb-2"></i>
+    <h5 class="fw-bold">Escanea el código con Google Authenticator</h5>
+    <img th:src="'data:image/png;base64,' + ${qr}" class="img-thumbnail mt-3 mb-3 mx-auto d-block" width="200" height="200"/>
+    <p class="mb-2"><strong>Código secreto:</strong> <span th:text="${secret}"></span></p>
+    <a class="btn btn-success w-100 mt-2" href="/login"><i class="bi bi-box-arrow-in-right me-2"></i>Ir al Login</a>
+</div>
+</body>
+</html>
+=======
     <title>Configuración MFA</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -13,3 +34,4 @@
 </div>
 </body>
 </html>
+>>>>>>> dfd3e99ff43ab63d36e663eff3aebaa9d5b3d6a2
